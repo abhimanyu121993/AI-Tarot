@@ -42,7 +42,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">Sr.No.</th>
-                                <th scope="col">BAckground Images</th>
+                                <th scope="col">Background Images</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -51,10 +51,8 @@
                                 <tr>
                                     <th scope="row">{{ $loop->index + 1 }}</th>
                                     <td>
-                                        <?php foreach (json_decode($user->background_images)as $picture) { ?>
-                                        <img src="{{ asset($picture) }}" class="me-75 bg-light-danger"
+                                        <img src="{{ asset($user->background_images) }}" class="me-75 bg-light-danger"
                                             style="height:60px;width:60px;" />
-                                        <?php } ?>
                                     </td>
                                     <td>
                                         <a class="btn btn-danger" href="{{route('admin.tarot-delete',$user->id)}}">Delete</a>
