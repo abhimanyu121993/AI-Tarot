@@ -179,7 +179,7 @@ class TarotCardController extends Controller
         } else {
             Session::flash('error', 'Tarot Card Not Updated');
         }
-        return redirect()->back();
+        return redirect()->route('admin.tarot.create');
     }
 
     /**
