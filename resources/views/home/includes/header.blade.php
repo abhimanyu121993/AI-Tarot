@@ -57,8 +57,9 @@
                         <a href="#" data-bs-toggle="modal" data-bs-target="#wallet-option" class="default-btn default-btn--secondary">
                             <span>Join <i class="fa-brands fa-discord"></i></span>
                         </a>
-                        <a href="{{route('askTarot')}}" class="default-btn">
-                            <span>AI Tarot <i class="fa-solid fa-wallet"></i></span>
+
+                        <a href="{{ route('google.login') }}" class="default-btn">
+                            <span>AI Tarot </span>
                         </a>
                     </div>
 
