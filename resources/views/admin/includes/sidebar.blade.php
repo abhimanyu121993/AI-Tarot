@@ -105,6 +105,13 @@
                         <i data-feather="users" class="icon-dual"></i> <span data-key="t-dashboards">Tarot Background</span>
                     </a>
                 </li>
+                @hasrole('Admin')
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('admin.subscription.index') }}"  role="button" aria-expanded="false" >
+                        <i data-feather="users" class="icon-dual"></i> <span data-key="t-dashboards">Subscription</span>
+                    </a>
+                </li>
+                @endrole
             </ul>
         </div>
         <!-- Sidebar -->

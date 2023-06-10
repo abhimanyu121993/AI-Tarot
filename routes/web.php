@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\TarotCardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\SocialLoginController;
+use App\Http\Controllers\SubscriptionController;
 use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -94,6 +95,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.', 'middleware' => 'auth'],function
     Route::get('privacy-policy',[AboutController::class,'privacy_policy'])->name('privacy-policy');
     Route::post('terms-condition/store',[AboutController::class,'store_terms_condition'])->name('terms-condition.store');
     Route::post('privacy-policy/store',[AboutController::class,'store_privacy_policy'])->name('privacy-policy.store');
+    Route::resource('subscription',SubscriptionController::class);
 
 
 });
