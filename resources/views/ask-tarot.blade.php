@@ -164,109 +164,29 @@
             }
         }
 
-        .tcb-product-slider {
-            background: #333;
-            background-image: url(https://unsplash.it/1240/530?image=721);
-            background-size: cover;
-            background-repeat: no-repeat;
-            padding: 100px 0;
+        .background-image {
+        position: relative;
+        width: 100%;
+        height: 100vh;
         }
 
-        .tcb-product-slider .carousel-control {
-            width: 5%;
-        }
-
-        .tcb-product-item a {
-            color: #147196;
-        }
-
-        .tcb-product-item a:hover {
-            text-decoration: none;
-        }
-
-        .tcb-product-item .tcb-hline {
-            margin: 10px 0;
-            height: 1px;
-            background: #ccc;
-        }
-
-        @media all and (max-width: 768px) {
-            .tcb-product-item {
-                margin-bottom: 30px;
-            }
-        }
-
-        .tcb-product-photo {
-            text-align: center;
-            height: 180px;
-            background: #fff;
-        }
-
-        .tcb-product-photo img {
-            height: 100%;
-            display: inline-block;
-        }
-
-        .tcb-product-info {
-            background: #f0f0f0;
-            padding: 15px;
-        }
-
-        .tcb-product-title h4 {
-            margin-top: 0;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-        }
-
-        .tcb-product-rating {
-            color: #acacac;
-        }
-
-        .tcb-product-rating .active {
-            color: #FFB500;
-        }
-
-        .tcb-product-price {
-            color: firebrick;
-            font-size: 18px;
+        .background-image .bg-image {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
         }
 
 
-
-        .details {
-            margin: 50px 0;
-        }
-
-        .details h1 {
-            font-size: 32px;
-            text-align: center;
-            margin-bottom: 3px;
-        }
-
-        .details .back-link {
-            text-align: center;
-        }
-
-        .details .back-link a {
-            display: inline-block;
-            margin: 20px 0;
-            padding: 15px 30px;
-            background: #333;
-            color: #fff;
-            border-radius: 24px;
-        }
-
-        .details .back-link a svg {
-            margin-right: 10px;
-            vertical-align: text-top;
-            display: inline-block;
-        }
     </style>
 </head>
 
-<body style="background-image:  ">
+<body class="background-image">
 
+    <img class="bg-image" src="{{ asset( $tarot_background->background_images ) }} " />
 
     <div class="container shadow p-3 mb-5 bg-body rounded p-5 mt-5 m-5 mx-auto form-horizontal">
         <h1 class="text-center" style="font-family: 'Lobster', cursive;">The AI Tarot</h1><br />
