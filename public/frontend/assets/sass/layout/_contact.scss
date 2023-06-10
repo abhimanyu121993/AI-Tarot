@@ -1,0 +1,81 @@
+.contact {
+    background-color: $primary-color;
+
+
+
+    .form {
+        @extend %p-rel;
+        z-index: 1;
+
+        input,
+        textarea {
+            @extend %w-100;
+            @include add-prefix(border, 1px solid transparent);
+            @include add-prefix(border-radius, 2px);
+            background-color: $body-color;
+            color: $white-color;
+            padding: 20px 30px;
+
+            &::placeholder {
+                color: $white-color;
+            }
+
+            &:focus-within {
+                outline: none;
+                border-color: rgba($theme-color, $alpha: .80);
+            }
+        }
+
+        input {
+            @extend %mb-20;
+        }
+
+        textarea {
+            @extend %mb-40;
+            min-height: 250px;
+        }
+
+        .default-btn {
+            border: none;
+        }
+    }
+}
+
+.form-message {
+    color: #22ce55;
+    @extend %mt-10;
+
+    &.problem {
+        color: #f44343;
+    }
+}
+
+
+.info {
+    &__item {
+        @extend %p-30,
+        %text-center;
+        background-color: $primary-color;
+
+        &-icon {
+            @extend %mb-30;
+        }
+
+        &-content {
+            p {
+                @extend %mb-0;
+            }
+        }
+    }
+}
+
+.map {
+
+    &__wrapper {
+        iframe {
+            @extend %w-100;
+            min-height: 300px;
+            margin-bottom: -5px;
+        }
+    }
+}

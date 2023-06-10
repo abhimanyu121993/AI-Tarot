@@ -1,0 +1,81 @@
+.accordion {
+    &__item {
+        @extend %of-hidden;
+
+        //style 2
+        &--style2 {
+            .accordion {
+
+                &__button,
+                &__body {
+                    background-color: rgba($white-color, $alpha: 0.1);
+                }
+
+            }
+        }
+    }
+
+    &__button {
+        @extend %w-100;
+        @extend %text-left;
+        @extend %flex;
+        @extend %justify-between;
+        @include font-size(24px);
+        background-color: $primary-color;
+        color: $secondary-color;
+        font-family: $title-font;
+        font-weight: 400;
+        padding: 1.5rem 1rem;
+        border: none;
+        text-transform: uppercase;
+
+        .plus-icon {
+            @extend %p-rel;
+            @include box(14px);
+            display: none;
+
+            @include breakpoint(sm) {
+                display: initial;
+            }
+
+            &:before,
+            &:after {
+                @extend %p-abs;
+                background-color: $secondary-color;
+            }
+
+            &::before {
+                @include add-prefix(transform, translateY(-50%));
+                width: 14px;
+                height: 2px;
+                top: 50%;
+            }
+
+        }
+
+        &.collapsed {
+            color: $white-color;
+
+
+            .plus-icon {
+                &::before {
+                    background-color: $white-color;
+                }
+
+                &::after {
+                    @include add-prefix(transform, translateY(-50%));
+                    height: 14px;
+                    width: 2px;
+                    top: 50%;
+                    left: 6px;
+                    background-color: $white-color;
+                }
+            }
+        }
+    }
+
+    &__body {
+        padding: .5rem 1.5rem 1.5rem;
+        background-color: $primary-color;
+    }
+}

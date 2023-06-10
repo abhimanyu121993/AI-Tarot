@@ -1,0 +1,14 @@
+.countdown {
+    @extend %flex;
+    gap: 30px;
+
+
+    &__item {
+        @extend %text-center;
+    }
+
+    &__text {
+        @extend %mb-0;
+        color: $white-color;
+    }
+}

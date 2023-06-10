@@ -1,0 +1,68 @@
+.collection {
+    @extend %of-hidden;
+
+    &__header {
+        @extend %p-rel,
+        %flex,
+        %align-items-center,
+        %mb-30;
+
+        @include breakpoint(lg) {
+            margin-bottom: 0;
+        }
+
+        &:before {
+            @extend %p-abs;
+            @include box(150px);
+            background-image: url(../images/collection/shape1.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        &-content {
+            h2 {
+                @extend %mb-15;
+            }
+
+            p {
+                @extend %mb-0;
+            }
+        }
+    }
+
+    &__btn {
+        @extend %h-100,
+        %p-rel,
+        %mt-30;
+        display: grid;
+        place-items: center;
+
+        @include breakpoint(lg) {
+            margin-bottom: 0;
+        }
+
+        &:before {
+            @extend %p-abs;
+            @include box(150px);
+            background-color: $primary-color;
+            border-radius: 50%;
+
+            @include breakpoint(xl) {
+                @include box(200px);
+            }
+        }
+
+        .default-btn {
+
+            @include breakpoint(lg) {
+                @include breakpoint(max-xl) {
+                    padding-inline: 1rem;
+                }
+            }
+        }
+    }
+
+}

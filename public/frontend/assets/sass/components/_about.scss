@@ -1,0 +1,37 @@
+.about {
+    @extend %of-hidden;
+
+    &__thumb {
+        @extend %text-center;
+    }
+
+    &__content {
+        h2 {
+            @extend %mb-15;
+        }
+    }
+}
+
+.mint-step {
+    @extend %mt-40;
+
+    h3 {
+        @extend %mb-15;
+    }
+
+    &__list {
+        @extend %mt-30,
+        %mb-30;
+        column-count: 2;
+        column-gap: 30px;
+
+        &-item {
+            @include font-size(18px);
+            text-transform: capitalize;
+            font-family: $title-font;
+            font-weight: 700;
+            border-top: 1px solid $border-color;
+            padding-block: 1rem;
+        }
+    }
+}

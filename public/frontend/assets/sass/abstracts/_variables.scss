@@ -1,0 +1,68 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+$bootstrap-sass-asset-helper: false !default;
+//
+// Variables
+// --------------------------------------------------
+
+
+// Colors
+
+$title-color: #0d142f;
+$theme-color: #00ffa3;
+$secondary-color:#fee600;
+$primary-color: #1d253b;
+$border-color: #1d253b;
+$white-color: #fff;
+$ash-color: #f9fafb;
+$body-color: #030b21;
+$black-color:#000000;
+$text-color: #dddddd;
+// social-media color
+$facebook: #3b5998;
+$twitter: #55acee;
+$linkedin: #007bb5;
+$skype: #2fb7df;
+$youtube: #cd201f;
+$google: #dd4b39;
+$camera: #e4405f;
+$instagram: #e4405f;
+$tumblr: #34465d;
+$behance: #1769ff;
+$star: #e9ba17;
+$green: #0be881;
+$green-h: #0fbcf9;
+$red: #f53b57;
+$yellow: #dec32b;
+$nell: #212fb4;
+$navy: #d8e0f3;
+$placeholder: #a0a6bc;
+
+//== Typography
+
+// font-family
+
+$text-font: 'Inter',
+sans-serif;
+
+$title-font: 'Bakbak One',
+cursive;
+
+
+
+// font-size
+
+$fs-base: 16px !default;
+$fs-h1: 72px;
+$fs-h2: 48px;
+$fs-h3: 30px;
+$fs-h4: 24px;
+$fs-h5: 20px;
+$fs-h6: 18px;
+
+
+
+//  transition
+$transition: all 0.3s ease;

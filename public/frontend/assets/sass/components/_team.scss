@@ -1,0 +1,147 @@
+.team {
+    @extend %of-hidden;
+    @include background-cover;
+
+    &__item {
+        @extend %p-rel;
+        background-color: $black-color;
+
+        .svg-shape {
+            svg {
+                @extend %p-abs;
+                top: 0;
+                right: 0;
+
+                path {
+                    @include add-prefix(transition, $transition);
+                    fill: $theme-color;
+                }
+            }
+        }
+
+        &:after {
+            @extend %p-abs;
+            @include box(40px);
+            background-image: url(../images/roadmap/shape.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            bottom: 10px;
+            right: 10px;
+
+        }
+
+        &-inner {
+            @extend %p-20;
+
+            @include breakpoint(sm) {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+        }
+
+        &-thumb {
+            @extend %of-hidden,
+            %mb-30;
+
+            @include breakpoint(sm) {
+                width: 45%;
+                margin-bottom: 0;
+            }
+
+            img {
+                @extend %w-100,
+                %h-100;
+                @include add-prefix(transition, $transition);
+                object-fit: cover;
+            }
+        }
+
+        &-content {
+            @include breakpoint(sm) {
+                padding-inline-start: 25px;
+                padding-inline-end: 10px;
+                width: 55%;
+            }
+
+            @include breakpoint(xxl) {
+                padding-inline-start: 30px;
+            }
+        }
+
+        .social {
+
+            &__link {
+                @include box(auto);
+                background-color: transparent;
+
+                svg {
+                    color: $text-color;
+                }
+
+                &:hover {
+                    svg {
+                        color: $theme-color;
+                    }
+                }
+            }
+        }
+
+        &:hover {
+            .svg-shape {
+                svg {
+                    path {
+                        fill: $secondary-color;
+                    }
+                }
+            }
+
+            .team__item {
+                &-thumb {
+                    img {
+                        @include add-prefix(transform, scale(1.1));
+                    }
+                }
+
+                &-content {
+                    h4 {
+                        a {
+                            color: $secondary-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        //style 2
+
+        &--style2 {
+            background-color: rgba($white-color, $alpha: .10);
+
+            .svg-shape,
+            &:after {
+                display: none;
+            }
+
+
+            .team__item {
+                &-inner {
+                    @extend %text-center,
+                    %p-10;
+                    flex-direction: column;
+                    gap: 20px;
+                }
+
+                &-thumb {
+                    @extend %w-100;
+                }
+
+                &-content {
+                    @extend %p-0,
+                    %w-100;
+                }
+            }
+        }
+
+    }
+}

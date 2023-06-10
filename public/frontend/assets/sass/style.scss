@@ -1,0 +1,73 @@
+/*!
+Template Name: AITarot
+Template URI: https: //www.templatemonster.com/authors/codexcoder/
+Author: codexcoder
+Author URI: https: //www.templatemonster.com/authors/codexcoder/
+Description: Description
+Version: 1.0.0
+Text Domain: AITarot
+Tags:nft, nftminting, nft landing page, nft offer, nft mint landing page, nft product anding page
+
+*/
+
+
+
+
+
+
+
+
+
+/*=====================================================================*/
+
+@charset "UTF-8";
+
+// 1. Configuration and helpers
+@import 'abstracts/variables',
+'abstracts/functions',
+'abstracts/mixins';
+
+// 2. Vendors
+@import 'vendors/normalize',
+'vendors/rfs';
+
+// 3. Base stuff
+@import 'base/fonts',
+'base/typography',
+'base/animations',
+'base/helpers';
+
+@import "abstracts/extend";
+
+// 4. Layout-related sections
+@import 'layout/header',
+'layout/banner',
+'layout/contact',
+'layout/footer';
+
+
+// 5. Components
+@import 'components/button',
+'components/preloader',
+'components/counter',
+'components/about',
+'components/blog',
+'components/widget',
+'components/partner',
+'components/error',
+'components/countdown',
+'components/coming-soon',
+'components/collection',
+'components/roadmap',
+'components/team',
+'components/community',
+'components/faq',
+'components/rating',
+'components/artist',
+'components/sale';
+
+// 6. Page-specific styles
+@import 'pages/home';
+
+// 7. Themes
+@import 'themes/default';

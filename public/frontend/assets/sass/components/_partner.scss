@@ -1,0 +1,20 @@
+.partner {
+    &__item {
+        padding: 1.5rem 2.5rem;
+        background-color: $primary-color;
+        display: grid;
+        place-items: center;
+
+        &--style2 {
+            background-color: rgba($white-color, $alpha: .10);
+        }
+    }
+
+    .col {
+        &:nth-child(2n) {
+            .partner__item {
+                background-color: $black-color;
+            }
+        }
+    }
+}

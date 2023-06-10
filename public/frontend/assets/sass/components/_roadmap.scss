@@ -1,0 +1,149 @@
+.roadmap {
+    @extend %of-hidden;
+    @include background-cover;
+
+
+
+    &__wrapper {
+        @extend %p-rel,
+        %of-hidden;
+
+        &:after {
+            @include breakpoint(md) {
+                position: absolute;
+                content: "";
+                height: 50%;
+                width: 10px;
+                background-color: $theme-color;
+                top: 0;
+                left: 50%;
+                @include add-prefix(transform, translateX(-50%));
+            }
+        }
+
+        &:before {
+            @include breakpoint(md) {
+                position: absolute;
+                content: "";
+                height: 100%;
+                width: 20px;
+                background-color: $black-color;
+                top: 0;
+                left: 50%;
+                @include add-prefix(transform, translateX(-50%));
+            }
+        }
+    }
+
+    .col-md-6 {
+        @include breakpoint(md) {
+            &:not(:first-child) {
+                .roadmap__item {
+                    margin-top: -70px;
+                }
+            }
+        }
+    }
+
+    &__item {
+        @extend %p-rel;
+        background-color: $black-color;
+
+
+        .svg-shape {
+            svg {
+                @extend %p-abs;
+                top: 0;
+                right: 0;
+
+                path {
+                    @include add-prefix(transition, $transition);
+                    fill: $theme-color;
+                }
+            }
+        }
+
+        &:after {
+            @extend %p-abs;
+            @include box(40px);
+            background-image: url(../images/roadmap/shape.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            bottom: 0;
+            right: 0;
+
+        }
+
+        &-header {
+            @extend %flex,
+            %align-items-center,
+            %justify-between,
+            %mb-15;
+
+            h4,
+            p {
+                @extend %mb-0;
+                @include add-prefix(transition, $transition);
+            }
+
+            p {
+                @include font-size(24px);
+                font-weight: 700;
+                font-family: $title-font;
+                color: $theme-color;
+            }
+        }
+
+        &.text-end {
+            .roadmap__item {
+                &-inner {
+                    &:after {
+                        @include breakpoint(md) {
+
+                            top: 30px;
+                            right: -68px;
+                            left: auto;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-content {
+            padding: 20px;
+
+            @include breakpoint(lg) {
+                padding: 40px;
+            }
+
+            p {
+                @extend %mb-0;
+            }
+        }
+
+        &:hover {
+            .roadmap__item-header {
+
+                h4,
+                p {
+                    color: $secondary-color;
+                }
+            }
+
+            .svg-shape {
+                svg {
+                    path {
+                        fill: $secondary-color;
+                    }
+                }
+            }
+        }
+    }
+
+    //roadmap style 2
+    &--style2 {
+        .roadmap__item {
+            margin-top: 0 !important;
+        }
+    }
+}

@@ -1,0 +1,131 @@
+.product {
+
+    &__inner {
+        @extend %p-rel;
+        @extend %text-center;
+        @include add-prefix(border-radius, 4px);
+        padding: 40px 20px;
+        background-color: $primary-color;
+    }
+
+    &__thumb {
+        @extend %of-hidden;
+        @extend %mb-25;
+
+        img {
+            @include add-prefix(transition, all .2s linear);
+        }
+    }
+
+    &__content {
+
+        h6,
+        h4 {
+            a {
+                @include add-prefix(transition, all .2s linear);
+                color: $white-color;
+                text-transform: uppercase;
+            }
+        }
+
+        p {
+            @extend %mb-5;
+            color: $theme-color;
+            font-family: $title-font;
+            text-transform: uppercase;
+
+            del {
+                color: $text-color;
+                @extend %mr-5;
+            }
+
+            strong {
+                color: $white-color;
+            }
+        }
+
+        .offer-txt {
+            display: inherit;
+            color: $white-color;
+            @extend %mb-25;
+        }
+
+
+    }
+
+    &__offertag {
+        @extend %p-abs;
+        @extend %text-center;
+        @include box(50px);
+        @include add-prefix(border-radius, 100%);
+        top: 20px;
+        left: 20px;
+        color: $white-color;
+        line-height: 50px;
+        background-color: $theme-color;
+
+
+    }
+
+    &__item {
+        @include add-prefix(transition, $transition);
+
+        &-2 {
+            .product__inner {
+                text-align: center;
+
+                @include breakpoint(sm) {
+                    text-align: left;
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: row-reverse;
+                    justify-content: space-between;
+                    padding: 40px;
+                }
+            }
+
+            .product__thumb {
+                @include breakpoint(sm) {
+                    margin-bottom: 0;
+                }
+            }
+
+            .product__offertag {
+                right: 20px;
+                left: auto;
+            }
+
+            .rating {
+                @include breakpoint(sm) {
+                    justify-content: start;
+                }
+            }
+
+            .default-btn {
+                border-color: transparent;
+                background-color: $body-color;
+            }
+        }
+
+        @include hover {
+            .product__thumb {
+                img {
+                    transform: skewX(5deg);
+                }
+            }
+
+            .product__content {
+
+                h6,
+                h4 {
+                    a {
+                        color: $theme-color;
+                    }
+                }
+            }
+
+            transform: translateY(-5px);
+        }
+    }
+
+}
