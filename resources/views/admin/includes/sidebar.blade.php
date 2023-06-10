@@ -99,14 +99,12 @@
                     </div>
                 </li>
                 @endrole
-                @can('user')
-                    <!-- User Menu -->
-                    <li class="nav-item">
-                        <a class="nav-link menu-link" href="{{ route('admin.tarot-get') }}"  role="button" aria-expanded="false" >
-                            <i data-feather="users" class="icon-dual"></i> <span data-key="t-dashboards">Tarot Background</span>
-                        </a>
-                    </li>
-                @endcan
+                <!-- User Menu -->
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('admin.tarot-get') }}"  role="button" aria-expanded="false" >
+                        <i data-feather="users" class="icon-dual"></i> <span data-key="t-dashboards">Tarot Background</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- Sidebar -->

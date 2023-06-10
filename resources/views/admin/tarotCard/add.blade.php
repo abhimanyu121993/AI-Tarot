@@ -1,72 +1,74 @@
-@extends('admin.includes.layout', ['breadcrumb_title' => 'User'])
-@section('title', 'User')
+@extends('admin.includes.layout', ['breadcrumb_title' => 'Add Tarot Card'])
+@section('title', 'Tarot Card')
 @section('main-content')
-
-    @can('user_create')
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">Register User</h4>
+                    <h4 class="card-title mb-0 flex-grow-1">{{isset($tarotCard)?'Update Tarot Card':'Add Tarot Crad'}}</h4>
                 </div><!-- end card header -->
                 <div class="card-body">
                     <div class="live-preview">
-                        <form action="{{ route('admin.user.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{isset($tarotCard)?route('admin.tarot.update',$tarotCard->id):route('admin.tarot.store')}}" method="POST" enctype="multipart/form-data">
+                            @isset($tarotCard)
+                                @method('put')
+                            @endisset
                             @csrf
                             <div class="row gy-4 mb-3">
                                 <div class="col-xxl-3 col-md-6">
-                                    <label for="first_name" class="form-label">First Name</label>
+                                    <label for="text" class="form-label">Name</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name">
+                                        <input type="text" value="{{$tarotCard->name??''}}" class="form-control" id="first_name" name="name" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="col-xxl-3 col-md-6">
-                                    <label for="last_name" class="form-label">Last Name</label>
+                                    <label for="text" class="form-label">Alt Name</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name">
+                                        <input type="text" value="{{$tarotCard->alt_name??''}}" class="form-control" id="last_name" name="alt_name" placeholder="Alt Name">
                                     </div>
                                 </div>
                                 <!--end col-->
                             </div>
                             <div class="row gy-4 mb-3">
                                 <div class="col-xxl-3 col-md-6">
-                                    <label for="email" class="form-label">Email</label>
+                                    <label for="text" class="form-label">Meanings</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+                                        <input type="text" value="{{$tarotCard->meanings??''}}" class="form-control" id="email" name="meanings" placeholder="Meanings">
                                     </div>
                                 </div>
                                 <div class="col-xxl-3 col-md-6">
-                                    <label for="phone" class="form-label">Phone</label>
+                                    <label for="text" class="form-label">Keyword-1</label>
                                     <div class="input-group">
-                                        <input type="number" class="form-control" id="phone" name="phone" placeholder="Phone">
+                                        <input type="text" value="{{$tarotCard->keywords_1??''}}"  class="form-control" id="text" name="keyword_1" placeholder="Keyword-1">
                                     </div>
                                 </div>
                                 <!--end col-->
                             </div>
                             <div class="row gy-4 mb-3">
                                 <div class="col-xxl-3 col-md-6">
-                                    <label for="email" class="form-label">Select Role</label>
-                                    <select name="roleid"  class="form-select">
-                                        <option value="">--Select Role--</option>
-                                        @foreach ($roles as $role)
-                                            <option value="{{ $role->id }}">{{ $role->name }}</option>
-                                        @endforeach
-                                    </select>
+                                    <label for="text" class="form-label">Keyword-2</label>
+                                    <input type="text" class="form-control" value="{{$tarotCard->keywords_2??''}}" id="text" name="keyword_2" placeholder="Keyword-2">
                                 </div>
                                 <div class="col-xxl-3 col-md-6">
-                                    <label for="pic" class="form-label">Image Thumbnail</label>
-                                    <input type="file" class="form-control" name="pic" />
+                                    <label for="pic" class="form-label">Mystic Mirror</label>
+                                    <textarea type="text" class="form-control" name="mystic_mirror" placeholder="Mystic Mirror">{{$tarotCard->mystic_mirror??''}}</textarea>
                                 </div>
                             </div>
                             <div class="row gy-4 mb-3">
                                 <div class="col-xxl-3 col-md-6">
-                                    <button class="btn btn-primary" type="submit" >Submit</button>
+                                    <label for="text" class="form-label">Numerology</label>
+                                    <input type="text" class="form-control" value="{{$tarotCard->numerology??''}}" name="numerology" placeholder="Numerology"/>
                                 </div>
-                                @if (isset($edituser))
-                                    <div class="col-sm-6">
-                                        <img src="{{asset($edituser->pic) }}" class="bg-light-info" alt="" style="height:100px;width:100px;">
-                                    </div>
-                                @endif
+                                <div class="col-xxl-3 col-md-6">
+                                    <label for="pic" class="form-label">Card Images</label>
+                                    <input type="file" class="form-control" value="{{$tarotCard->card_images??''}}" name="card_images" placeholder="Images"/>
+                                </div>
+                            </div>
+                            <div class="row gy-4 mb-3">
+                                <div class="col-xxl-3 col-md-6">
+                                    <label for="" class="form-label"></label>
+                                    <button class="btn btn-primary" type="submit" >{{isset($tarotCard)?'Update':'Submit'}}</button>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -74,84 +76,6 @@
             </div>
         </div>
     </div>
-    @endcan
-
-    @can('user_read')
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header align-items-center d-flex">
-                    <h4 class="card-title mb-0 flex-grow-1">Manage Users</h4>
-                </div><!-- end card header -->
-                <div class="card-body">
-                    <table class="table table-nowrap container">
-                        <thead>
-                            <tr>
-                                <th scope="col">Sr.No.</th>
-                                <th scope="col">Image</th>
-                                <th scope="col">First Name</th>
-                                <th scope="col">Last Name</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Role</th>
-                                @canany(['user_edit', 'user_delete'])
-                                <th scope="col">Action</th>
-                                @endcanany
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($users as $user)
-                                <tr>
-                                    <th scope="row">{{ $loop->index + 1 }}</th>
-                                    <td>
-                                        <img src="{{ asset( $user->pic) }}" class="me-75 bg-light-danger"
-                                            style="height:60px;width:60px;" />
-                                    </td>
-                                    <td>{{ $user->first_name ?? '' }}</td>
-                                    <td>{{ $user->last_name ?? '' }}</td>
-                                    <td>{{ $user->email ?? '' }}</td>
-                                    <td>{{ $user->phone ?? '' }}</td>
-                                    <td>{{ $user->roles[0]->name ?? '' }}</td>
-                                    @php $cryptid=Crypt::encrypt($user->id); @endphp
-                                    @canany(['user_edit', 'user_delete'])
-                                    <td>
-                                        <div class="dropdown">
-                                            <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
-                                                aria-expanded="false">
-                                                <i class="ri-more-2-fill"></i>
-                                            </a>
-
-                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                                {{-- <li><a class="dropdown-item" href="#">View</a></li> --}}
-                                                @can('user_edit')
-                                                    <li><a class="dropdown-item" href="#">Edit</a></li>
-                                                @endcan
-                                                @can('user_delete')
-                                                    <li><a class="dropdown-item" href="#">Delete</a></li>
-                                                @endcan
-                                            </ul>
-                                            @can('user_delete')
-                                                <form id="delete-form-{{ $cryptid }}" action="{{ route('admin.user.destroy', $cryptid) }}"
-                                                        method="post" style="display: none;">
-                                                        @method('DELETE')
-                                                        @csrf
-                                                    </form>
-                                                @endcan
-                                        </div>
-                                    </td>
-                                    @endcanany
-                            @endforeach
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    @endcan
-
-
-
     <!-- Grids in modals -->
 @endsection
 
