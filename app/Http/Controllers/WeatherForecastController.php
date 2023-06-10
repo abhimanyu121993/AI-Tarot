@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdminQuery;
+use App\Models\TarotBackground;
 use App\Models\TarotCard;
 use App\Models\UserResponse;
 use Illuminate\Http\Request;
@@ -126,7 +127,10 @@ class WeatherForecastController extends Controller
 
     public function askTarot()
     {
-        return view('ask-tarot');
+        $cards = TarotCard::whereNotNull('card_images')->get()->take(4);
+        $tarot_background = TarotBackground::inRandomOrder()->first();
+        // dd($tarot_background);
+        return view('ask-tarot', compact('cards', 'tarot_background'));
     }
 
     public function tarotCard(Request $request)

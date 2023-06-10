@@ -265,7 +265,7 @@
     </style>
 </head>
 
-<body>
+<body style="background-image:  ">
 
 
     <div class="container shadow p-3 mb-5 bg-body rounded p-5 mt-5 m-5 mx-auto form-horizontal">
@@ -286,66 +286,12 @@
                     <div class="carousel-inner">
                       <div class="carousel-item active">
                         <div class="row">
-                          <div class="col-md-3">
-                            <img src="product1.jpg" class="d-block w-100" alt="Product 1">
-                            <div class="carousel-caption">
-                              <h5>Product 1</h5>
-                              <p>Description of Product 1</p>
-                            </div>
+                          @foreach ($cards as $card)
+                          <div class="col-md-3" >
+                            <input type="checkbox" name="card" id="card" />
+                            <img src="{{ asset($card->card_images) }}" for="card" class="d-block w-100" alt="Product 1">
                           </div>
-                          <div class="col-md-3">
-                            <img src="product2.jpg" class="d-block w-100" alt="Product 2">
-                            <div class="carousel-caption">
-                              <h5>Product 2</h5>
-                              <p>Description of Product 2</p>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <img src="product3.jpg" class="d-block w-100" alt="Product 3">
-                            <div class="carousel-caption">
-                              <h5>Product 3</h5>
-                              <p>Description of Product 3</p>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <img src="product4.jpg" class="d-block w-100" alt="Product 4">
-                            <div class="carousel-caption">
-                              <h5>Product 4</h5>
-                              <p>Description of Product 4</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="carousel-item active">
-                        <div class="row">
-                          <div class="col-md-3">
-                            <img src="product1.jpg" class="d-block w-100" alt="Product 1">
-                            <div class="carousel-caption">
-                              <h5>Product 1</h5>
-                              <p>Description of Product 1</p>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <img src="product2.jpg" class="d-block w-100" alt="Product 2">
-                            <div class="carousel-caption">
-                              <h5>Product 2</h5>
-                              <p>Description of Product 2</p>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <img src="product3.jpg" class="d-block w-100" alt="Product 3">
-                            <div class="carousel-caption">
-                              <h5>Product 3</h5>
-                              <p>Description of Product 3</p>
-                            </div>
-                          </div>
-                          <div class="col-md-3">
-                            <img src="product4.jpg" class="d-block w-100" alt="Product 4">
-                            <div class="carousel-caption">
-                              <h5>Product 4</h5>
-                              <p>Description of Product 4</p>
-                            </div>
-                          </div>
+                          @endforeach
                         </div>
                       </div>
                     </div>
