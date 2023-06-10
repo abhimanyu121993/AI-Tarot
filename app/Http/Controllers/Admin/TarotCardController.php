@@ -87,11 +87,11 @@ class TarotCardController extends Controller
                 $pic_names[] = $pic_name;
             }
         }
-        $data = [];
         foreach ($pic_names as $pic_name) {
-            $data[] = ['background_images' => $pic_name];
+            $user = TarotBackground::create([
+                'background_images' => $pic_name,
+            ]);
         }
-        $user = TarotBackground::insert($data);
         if ($user) {
             Session::flash('success', 'Tarot Background Created successfully');
         } else {
