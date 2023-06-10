@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\home;
 
 use App\Http\Controllers\Controller;
+use App\Models\BusinessSetting;
 use App\Models\SubscribeNewsletter;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -45,5 +46,20 @@ class HomeController extends Controller
     public function readTarot()
     {
         return view('read_tarot');
+    }
+    public function ShowAbout()
+    {
+        $about=BusinessSetting::where('key','about_us')->first();
+        return view('home.about',compact('about'));
+    }
+    public function ShowTerms()
+    {
+        $terms=BusinessSetting::where('key','terms_condition')->first();
+        return view('home.terms_condition',compact('terms'));
+    }
+    public function ShowPrivacy()
+    {
+        $privacy=BusinessSetting::where('key','privacy_policy')->first();
+        return view('home.privacy_policy',compact('privacy'));
     }
 }

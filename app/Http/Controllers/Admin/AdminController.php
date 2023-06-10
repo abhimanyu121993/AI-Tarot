@@ -21,7 +21,7 @@ class AdminController extends Controller
     {
         Auth::logout();
         Session::flush();
-        return redirect()->route('home');
+        return redirect()->route('admin');
 
     }
 

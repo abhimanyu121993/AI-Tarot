@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\TarotBackground;
 use App\Models\TarotCard;
 use Error;
 use Exception;
@@ -79,7 +80,47 @@ class TarotCardController extends Controller
             }
         return redirect()->back();
     }
-
+    public function T_Background_post(Request $request)
+    { 
+        $request->validate([
+            'background_images'=>'required',
+        ]);
+        $files = $request->file('background_images');
+            if($request->hasFile('background_images')){
+                foreach($files as $file){
+                $upic='background_images-'.time().'-'.rand(0,99).'.'.$file->extension();
+                $file->move(public_path('upload/background_images/'),$upic);
+                $pic_name[] = 'upload/background_images/'.$upic;
+                }
+            }
+            $data = [
+                'background_images'=>json_encode($pic_name),
+            ];
+            $user = TarotBackground::create($data);
+            if($user)
+            {
+                Session::flash('success', 'Tarot Background Created successfully');
+            }
+            else
+            {
+                Session::flash('error', 'Tarot Background Not Created');
+            }
+        return redirect()->back();
+    }
+    public function T_Background_delete($id)
+    {
+        if(TarotBackground::find($id)->delete()) {
+            return back()->with('success', 'Torad Background deleted successfully');
+        }
+        else {
+            return back()->with('failed', 'Oh! Torad Background did not deleted successfully');
+        }
+    }
+    public function T_Background()
+    {
+        $tarot=TarotBackground::all();
+        return view('admin.tarot_background',compact('tarot'));
+    }
     /**
      * Display the specified resource.
      *

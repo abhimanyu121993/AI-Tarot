@@ -64,7 +64,7 @@
                 <!-- Tarot Card -->
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarDashboards2" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                        <i data-feather="aperture" class="icon-dual"></i> <span data-key="t-dashboards">Tarot Card</span>
+                        <i data-feather="lock" class="icon-dual"></i> <span data-key="t-dashboards">Tarot Card</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarDashboards2">
                         <ul class="nav nav-sm flex-column">
@@ -82,7 +82,7 @@
                 <!-- Tarot Card -->
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="#sidebarDashboards3" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="sidebarDashboards">
-                        <i data-feather="settings" class="icon-dual"></i> <span data-key="t-dashboards">Settings</span>
+                        <i data-feather="lock" class="icon-dual"></i> <span data-key="t-dashboards">Settings</span>
                     </a>
                     <div class="collapse menu-dropdown" id="sidebarDashboards3">
                         <ul class="nav nav-sm flex-column">
@@ -99,6 +99,14 @@
                     </div>
                 </li>
                 @endrole
+                @can('user')
+                    <!-- User Menu -->
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="{{ route('admin.tarot-get') }}"  role="button" aria-expanded="false" >
+                            <i data-feather="users" class="icon-dual"></i> <span data-key="t-dashboards">Tarot Background</span>
+                        </a>
+                    </li>
+                @endcan
             </ul>
         </div>
         <!-- Sidebar -->

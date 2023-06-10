@@ -64,8 +64,6 @@
     <!-- Foot -->
     @include('admin.includes.foot');
     <!-- Foot End -->
-    @include('sweetalert::alert')
-
     <!-- Foot -->
     @include('admin.includes.footer');
     <!-- Foot End -->

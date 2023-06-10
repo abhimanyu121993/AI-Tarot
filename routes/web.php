@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\LiveLocationController;
+use App\Http\Controllers\WeatherForecastController;
 use Stevebauman\Location\Facades\Location;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Auth\LoginController;
@@ -10,8 +11,6 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\admin\TarotCardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Home\HomeController;
-use App\Http\Controllers\SocialLoginController;
-use App\Http\Controllers\TarotController;
 use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -38,29 +37,35 @@ Route::post('subscribe', [HomeController::class, 'subscribe'])->name('subscribe'
 Route::get('home', [HomeController::class , 'home'])->name('home');
 Route::get('read-tarot', [HomeController::class , 'readTarot'])->name('readTarot');
 
+Route::get('about', [HomeController::class , 'ShowAbout'])->name('about');
+Route::get('privacy-policy', [HomeController::class , 'ShowPrivacy'])->name('privacy');
+Route::get('terms-condition', [HomeController::class , 'ShowTerms'])->name('terms');
+
+Route::get('/weather-forecast', [WeatherForecastController::class, 'weatherDetail']);
+Route::get('/live-location', [LiveLocationController::class, 'liveLocation']);
+
 
 //OpenAI
-Route::get('ask', [TarotController::class, 'askOpenAi'])->name('askOpenAi');
-Route::post('/openai-img', [TarotController::class, 'openAiGenerate'])->name('openAiGenerate');
+Route::get('ask', [WeatherForecastController::class, 'askOpenAi'])->name('askOpenAi');
+Route::post('/openai-img', [WeatherForecastController::class, 'openAiGenerate'])->name('openAiGenerate');
 
 
 //Read Tarot
-Route::get('ask-tarot', [TarotController::class, 'askTarot'])->name('askTarot');
-Route::post('/tarot-card', [TarotController::class, 'tarotCard'])->name('tarotCard');
+Route::get('ask-tarot', [WeatherForecastController::class, 'askTarot'])->name('askTarot');
+Route::post('/tarot-card', [WeatherForecastController::class, 'tarotCard'])->name('tarotCard');
 
 // Admin Screen OpenAI
-Route::get('admin-query', [TarotController::class, 'adminQuery'])->name('adminQuery');
-Route::post('/admin-save-query', [TarotController::class, 'saveAdminQuery'])->name('saveAdminQuery');
+Route::get('admin-query', [WeatherForecastController::class, 'adminQuery'])->name('adminQuery');
+Route::post('/admin-save-query', [WeatherForecastController::class, 'saveAdminQuery'])->name('saveAdminQuery');
 
 // User Screen OpenAI
-Route::get('user-response', [TarotController::class, 'userResponse'])->name('userResponse');
-Route::get('del-response/{id}', [TarotController::class, 'delUserResponse'])->name('delUserResponse');
+Route::get('user-response', [WeatherForecastController::class, 'userResponse'])->name('userResponse');
+Route::get('del-response/{id}', [WeatherForecastController::class, 'delUserResponse'])->name('delUserResponse');
 
 
 // Backend Routes
 Route::get('/admin',[LoginController::class, 'index'])->name('admin');
 Route::post('/login',[LoginController::class, 'store'])->name('login');
-Route::get('lockscreen', [UserController::class, 'lockscreen'])->name('lockscreen');
 
 
 Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
@@ -72,6 +77,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
     Route::get('edit-user-profile/{id?}',[UserController::class,'editProfile'])->name('editprofile');
     Route::post('user-profile-update',[UserController::class,'updateProfile'])->name('userupdate');
     Route::post('user-pass-update',[UserController::class,'updatePassword'])->name('uppass');
+    Route::post('user-signup',[UserController::class,'UserStore'])->name('userstore');
 
     Route::resource('/role', RoleController::class);
     Route::resource('/permission', PermissionController::class);
@@ -79,6 +85,9 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
     Route::post('/fetch-permission',[PermissionController::class,'fetchPermission'])->name('fetchPermission');
     Route::post('/assign-permission',[PermissionController::class,'assignPermission'])->name('assignPermission');
     Route::resource('tarot', TarotCardController::class);
+    Route::get('tarot-background',[TarotCardController::class,'T_Background'])->name('tarot-get');
+    Route::post('tarot-background-store',[TarotCardController::class,'T_Background_post'])->name('tarot-post');
+    Route::get('tarot-background-delete/{id}',[TarotCardController::class,'T_Background_delete'])->name('tarot-delete');
     Route::resource('about', AboutController::class);
     Route::get('terms-condition',[AboutController::class,'terms_condition'])->name('terms-condition');
     Route::get('privacy-policy',[AboutController::class,'privacy_policy'])->name('privacy-policy');
@@ -88,20 +97,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
 
 });
 
-
-// Google Login
-Route::prefix('google')->name('google.')->group( function(){
-    Route::get('login', [SocialLoginController::class, 'loginWithGoogle'])->name('login');
-    Route::any('callback', [SocialLoginController::class, 'callbackFromGoogle'])->name('callback');
-});
-
-
-
-
-
-
-
-
+Route::get('lockscreen', [UserController::class, 'lockscreen'])->name('lockscreen');
 
 
 Route::get('/optimize', function(){

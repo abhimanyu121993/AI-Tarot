@@ -93,6 +93,34 @@ class UserController extends Controller
         return redirect()->back();
     }
 
+    public function UserStore(Request $request)
+    {
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'nullable',
+            'email' => 'required',
+            'phone' => 'required',
+            'address'=>'required',
+        ]);
+            $data = [
+                'first_name' => $request->first_name,
+                'last_name' => $request->last_name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'password' => Hash::make($request->password),
+                'address'=> $request->address,
+            ];
+            $user = User::create($data);
+            if($user)
+            {
+                Session::flash('success', 'User registered successfully');
+            }
+            else
+            {
+                Session::flash('error', 'User not registered');
+            }
+        return redirect()->back();
+    }
     /**
      * Display the specified resource.
      *

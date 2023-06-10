@@ -14,7 +14,7 @@
                         </li>
 
                         <li>
-                            <a href="#about">About</a>
+                            <a href="{{route('about')}}">About</a>
                         </li>
                         <li>
                             <a href="#team">Team</a>
@@ -54,23 +54,12 @@
                         </li> --}}
                     </ul>
                     <div class="header-btn">
-
                         <a href="#" data-bs-toggle="modal" data-bs-target="#wallet-option" class="default-btn default-btn--secondary">
                             <span>Join <i class="fa-brands fa-discord"></i></span>
                         </a>
-
-                        <a href="{{ route('google.login') }}" class="default-btn">
+                        <a href="{{route('askTarot')}}" class="default-btn">
                             <span>AI Tarot <i class="fa-solid fa-wallet"></i></span>
                         </a>
-                        @isset(Auth::user()->id)
-                        <div class="dropdown">
-                            <img class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" src="{{ asset(Auth::user()->pic) }}" class="rounded" style="height: 60px;width: 70px;background: none; border: none; border-radius: 50%;" alt="profile_img">
-                            <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="{{ route('admin.logout') }}">Logout</a></li>
-                            </ul>
-                          </div>
-                        @endisset
-
                     </div>
 
                     <!-- toggle icons -->

@@ -30,50 +30,6 @@
                 </div>
             </div>
 
-            <div class="col-xl-3">
-                <div class="card card-animate">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="avatar-sm flex-shrink-0">
-                                <span class="avatar-title bg-soft-success text-info rounded-2 fs-2">
-                                    <i data-feather="aperture" class="text-success"></i>
-                                </span>
-                            </div>
-                            <div class="flex-grow-1 overflow-hidden ms-3">
-                                <p class="text-uppercase fw-medium text-muted text-truncate mb-3">Tarot Cards</p>
-                                <div class="d-flex align-items-center mb-3">
-                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value" data-target="{{ App\Models\TarotCard::count() }}">{{ App\Models\TarotCard::count() }}</span></h4>
-                                    {{-- <span class="badge badge-soft-danger fs-12"><i class="ri-arrow-down-s-line fs-13 align-middle me-1"></i>10.35 %</span> --}}
-                                </div>
-                                {{-- <p class="text-muted text-truncate mb-0">Work this month</p> --}}
-                            </div>
-                        </div>
-                    </div><!-- end card body -->
-                </div>
-            </div>
-
-            <div class="col-xl-3">
-                <div class="card card-animate">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center">
-                            <div class="avatar-sm flex-shrink-0">
-                                <span class="avatar-title bg-soft-danger text-info rounded-2 fs-2">
-                                    <i data-feather="shield" class="text-danger"></i>
-                                </span>
-                            </div>
-                            <div class="flex-grow-1 overflow-hidden ms-3">
-                                <p class="text-uppercase fw-medium text-muted text-truncate mb-3">Roles</p>
-                                <div class="d-flex align-items-center mb-3">
-                                    <h4 class="fs-4 flex-grow-1 mb-0"><span class="counter-value" data-target="{{ Spatie\Permission\Models\Role::count() }}">{{ Spatie\Permission\Models\Role::count() }}</span></h4>
-                                    {{-- <span class="badge badge-soft-danger fs-12"><i class="ri-arrow-down-s-line fs-13 align-middle me-1"></i>10.35 %</span> --}}
-                                </div>
-                                {{-- <p class="text-muted text-truncate mb-0">Work this month</p> --}}
-                            </div>
-                        </div>
-                    </div><!-- end card body -->
-                </div>
-            </div>
-
 
 
 

@@ -1,4 +1,4 @@
-<footer class="footer" style="background-image: url(assets/images/footer/bg.png);">
+ <footer class="footer" style="background-image: url(assets/images/footer/bg.png);">
     <div class="footer__wrapper padding-top padding-bottom">
         <div class="container">
             <div class="footer__content text-center">
@@ -29,8 +29,9 @@
     </div>
     <div class="footer__copyright">
         <div class="container">
-            <div class="text-center py-4">
-                <p class=" mb-0">© 2022 | All Rights Reserved </p>
+            <div class="row">
+            <div class="col-sm-6 py-4"><p class="mb-0">© 2022 | All Rights Reserved </p></div>
+            <div class="col-sm-6 py-4"><div style="float: right;"><a class="" href="{{route('terms')}}">Terms & Condition </a>|<a class="" href="{{route('privacy')}}"> Privacy Policy</a></div></div>
             </div>
         </div>
     </div>
