@@ -58,9 +58,20 @@
                             <span>Join <i class="fa-brands fa-discord"></i></span>
                         </a>
 
-                        <a href="{{ route('google.login') }}" class="default-btn">
+                        <a href="{{ route('google.login') }}" class="default-btn" >
                             <span>AI Tarot </span>
                         </a>
+
+                        @isset(Auth::user()->id)
+                            <div class="dropdown">
+                                <img src="{{ Auth::user()->pic }}" alt="profie_img" style="width: 70px;height:60px;border:none;background:none;border-radius:50%;" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                                <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ route('admin.logout') }}">Logout</a></li>
+                                </ul>
+                            </div>
+                        @endisset
+
+
                     </div>
 
                     <!-- toggle icons -->

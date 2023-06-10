@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\admin\TarotCardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\SocialLoginController;
 use App\Models\User;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -68,7 +69,7 @@ Route::get('/admin',[LoginController::class, 'index'])->name('admin');
 Route::post('/login',[LoginController::class, 'store'])->name('login');
 
 
-Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
+Route::group(['prefix'=>'admin','as'=>'admin.', 'middleware' => 'auth'],function(){
     Route::get('/dashboard',[AdminController::class,'dashboard'])->name('dashboard');
     Route::get('/logout',[AdminController::class,'logout'])->name('logout');
 
@@ -95,6 +96,11 @@ Route::group(['prefix'=>'admin','as'=>'admin.'],function(){
     Route::post('privacy-policy/store',[AboutController::class,'store_privacy_policy'])->name('privacy-policy.store');
 
 
+});
+
+Route::group(['prefix'=>'google','as'=>'google.'],function(){
+    Route::get('/login',[SocialLoginController::class,'loginWithGoogle'])->name('login');
+    Route::get('/callback',[SocialLoginController::class,'callbackFromGoogle'])->name('callback');
 });
 
 Route::get('lockscreen', [UserController::class, 'lockscreen'])->name('lockscreen');
