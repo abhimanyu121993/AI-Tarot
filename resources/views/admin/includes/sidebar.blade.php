@@ -112,6 +112,13 @@
                     </a>
                 </li>
                 @endrole
+                @hasrole('Admin')
+                <li class="nav-item">
+                    <a class="nav-link menu-link" href="{{ route('admin.faq.index') }}"  role="button" aria-expanded="false" >
+                        <i data-feather="users" class="icon-dual"></i> <span data-key="t-dashboards">Add FAQ</span>
+                    </a>
+                </li>
+                @endrole
             </ul>
         </div>
         <!-- Sidebar -->

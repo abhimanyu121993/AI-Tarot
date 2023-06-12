@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\admin\TarotCardController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\SocialLoginController;
 use App\Http\Controllers\SubscriptionController;
@@ -46,6 +47,7 @@ Route::get('terms-condition', [HomeController::class , 'ShowTerms'])->name('term
 Route::get('/weather-forecast', [WeatherForecastController::class, 'weatherDetail']);
 Route::get('/live-location', [LiveLocationController::class, 'liveLocation']);
 
+Route::get('show-faq',[FaqController::class,'show_faq'])->name('show-faq');
 
 //OpenAI
 Route::get('ask', [WeatherForecastController::class, 'askOpenAi'])->name('askOpenAi');
@@ -96,6 +98,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.', 'middleware' => 'auth'],function
     Route::post('terms-condition/store',[AboutController::class,'store_terms_condition'])->name('terms-condition.store');
     Route::post('privacy-policy/store',[AboutController::class,'store_privacy_policy'])->name('privacy-policy.store');
     Route::resource('subscription',SubscriptionController::class);
+    Route::resource('faq', FaqController::class);
 
 
 });

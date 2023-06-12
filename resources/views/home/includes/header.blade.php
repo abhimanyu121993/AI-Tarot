@@ -20,7 +20,7 @@
                             <a href="#team">Team</a>
                         </li>
                         <li>
-                            <a href="#faq">FAQ</a>
+                            <a href="{{route('show-faq')}}">FAQ</a>
                         </li>
                         {{-- <li>
                             <a href="#0">Pages</a>
