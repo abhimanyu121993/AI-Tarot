@@ -7,6 +7,7 @@ use App\Models\TarotBackground;
 use App\Models\TarotCard;
 use App\Models\UserResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 use RakibDevs\Weather\Weather;
@@ -127,7 +128,8 @@ class WeatherForecastController extends Controller
 
     public function askTarot()
     {
-        $cards = TarotCard::whereNotNull('card_images')->get()->take(4);
+        $cards = TarotCard::whereNotNull('card_images')->get()->take(21);
+        // dd($cards);
         $tarot_background = TarotBackground::inRandomOrder()->first();
         // dd($tarot_background->background_images);
         return view('ask-tarot', compact('cards', 'tarot_background'));
@@ -135,6 +137,7 @@ class WeatherForecastController extends Controller
 
     public function tarotCard(Request $request)
     {
+        dd($request->all());
         $search = $request->search ;
 
         $cards = TarotCard::inRandomOrder()->first();
@@ -148,6 +151,7 @@ class WeatherForecastController extends Controller
 
         $user = UserResponse::create([
             'question' => $search,
+            'user_id' => Auth::user()->id,
             'text_answer' => json_encode($txt_result['content']),
             'img_answer' => json_encode($img_result['data']),
         ]);
@@ -164,7 +168,7 @@ class WeatherForecastController extends Controller
         Log::info('textTarotAIGenerate '. $param);
         $data = Http::withHeaders([
             'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' . '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',
+            'Authorization' => 'Bearer ' . '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',
         ])
             ->post("https://api.openai.com/v1/chat/completions", [
                 "model" => "gpt-3.5-turbo",
@@ -194,7 +198,7 @@ class WeatherForecastController extends Controller
         Log::info('imageTarotAIGenerate '. $param);
         $data = Http::withHeaders([
             'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' . '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',
+            'Authorization' => 'Bearer ' . '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',
         ])
             ->post("https://api.openai.com/v1/images/generations", [
                 "prompt" => $param,

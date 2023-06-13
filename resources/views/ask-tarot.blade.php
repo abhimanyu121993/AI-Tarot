@@ -7,6 +7,9 @@
     <title>Ask with OpenAI</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
@@ -179,8 +182,10 @@
         object-fit: cover;
         z-index: -1;
         }
-
-
+        .trials-option input[type="radio"]:checked + img {
+          border: 10px solid #15e3d2;
+          border-radius: 20px;
+          }
     </style>
 </head>
 
@@ -202,13 +207,36 @@
                     placeholder="Will i find my love">
             </div>
             <div class="mb-3 form-group">
+                <div id="" class="carousel slide" data-bs-ride="carousel">
+                    <div class="owl-carousel owl-theme">
+                        @foreach ($cards as $card)
+                        <div class="col-md-3 trials-option" >
+                          <label class="custom-checkbox"><input type="radio" hidden name="card" value="{{$card->id}}" id="img" />
+                          <img src="{{ asset($card->card_images) }}" style="height: 10rem;width:10rem;" class="d-block " alt="Product 1"></label>
+                        </div>
+                        @endforeach
+                    </div>
+                  <button class="carousel-control-prev prev-btn" type="button" 
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next next-btn" type="button" data-bs-target="#productCarousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+        
+            {{-- <div class="mb-3 form-group">
                 <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                       <div class="carousel-item active">
                         <div class="row">
                           @foreach ($cards as $card)
                           <div class="col-md-3" >
-                            <input type="checkbox" name="card" id="card" />
+                            <input type="checkbox" name="card" value="{{$card->id}}" id="card" />
                             <img src="{{ asset($card->card_images) }}" for="card" class="d-block w-100" alt="Product 1">
                           </div>
                           @endforeach
@@ -225,7 +253,7 @@
                     </button>
                 </div>
 
-            </div>
+            </div> --}}
             <button type="submit" href="#" class="btn btn-lg"><span>Read my Tarot</span> </button>
         </form>
 
@@ -234,6 +262,40 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
     </script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var owl = $('.owl-carousel');
+      owl.owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: false,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 2
+          },
+          1000: {
+            items: 3
+          }
+        }
+      });
+
+      $('.next-btn').click(function () {
+        owl.trigger('next.owl.carousel');
+      });
+
+      $('.prev-btn').click(function () {
+        owl.trigger('prev.owl.carousel');
+      });
+    });
+  </script>
     @include('sweetalert::alert')
 
 </body>
