@@ -137,7 +137,7 @@ class WeatherForecastController extends Controller
 
     public function tarotCard(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $search = $request->search ;
 
         $cards = TarotCard::inRandomOrder()->first();
