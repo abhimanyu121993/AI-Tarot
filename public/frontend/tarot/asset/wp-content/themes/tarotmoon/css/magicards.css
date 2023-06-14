@@ -1,0 +1,247 @@
+.magi-cus-page {
+	/* background: #FFFFFF !important; */
+	margin: 0px auto !important;
+	padding-bottom: 50px;
+	position: relative;
+	z-index: 10000 !important;
+}
+#primary, article {
+	text-align: center !important;
+	margin: 0px !important;
+	padding: 0px !important;
+}
+.fl-col-has-cols {
+	width: 100% !important;
+	padding: 0px !important;
+	margin: 0px !important;
+	z-index: 0 !important;
+}
+.margint4, .align-center {
+	position: relative !important;
+	top: 0px !important;
+	margin-top: 0px !important;
+	left: 0px !important;
+	z-index: 0 !important;
+}
+.site-footer {
+    margin-top: 0px !important;
+}
+div[data-node] {
+    display: block !important;
+    float: left;
+    text-align: center;
+    width: 100% !important;
+}
+.magicard-flipper.magicard-clicker {
+	z-index: 10 !important;
+	position: relative !important;
+	margin: auto !important;
+	padding: 0px !important;
+}
+.magicard-tooltip {
+	z-index: 9999999999999999999;
+}
+.magicard-wrap > div:nth-child(2){
+	position: absolute !important;
+	margin: auto !important;
+	left: 38.75555555%;
+	z-index: 20;
+}
+table {
+	max-width: 100%;
+	width: 820px;
+	margin: auto auto 60px auto;
+}
+table, td {
+	text-align: center !important;
+	border: 0px !important;
+}
+
+/*MQs*/
+/*Magicards Section*/
+@media(min-width: 1200px) and (max-width: 5000px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 38.75555555%;
+	}
+}
+@media(min-width: 1160px) and (max-width: 1200px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 38.026%;
+	}
+}
+@media(min-width: 1140px) and (max-width: 1160px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 38.026%;
+	}
+}
+@media(min-width: 1120px) and (max-width: 1140px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 37.7%;
+	}
+}
+@media(min-width: 1100px) and (max-width: 1120px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 37.5%;
+	}
+}
+@media(min-width: 1075px) and (max-width: 1100px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 37.2%;
+	}
+}
+@media(min-width: 1060px) and (max-width: 1075px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 37%;
+	}
+}
+@media(min-width: 1050px) and (max-width: 1060px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 36.8%;
+	}
+}
+@media(min-width: 1020px) and (max-width: 1050px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 38.5%;
+	}
+}
+@media(min-width: 960px) and (max-width: 1020px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 37.7%;
+	}
+}
+@media(min-width: 950px) and (max-width: 960px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 37.5%;
+	}
+}
+@media(min-width: 920px) and (max-width: 950px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 37.1%;
+	}
+}
+@media(min-width: 768px) and (max-width: 920px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 41%;
+	}
+}
+@media(min-width: 100px) and (max-width: 768px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 41%;
+	}
+}
+@media(min-width: 375px) and (max-width: 768px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 40.4%;
+	}
+}
+@media(min-width: 920px) and (max-width: 1050px){
+	.magicard-flipper {
+		width: 220px;
+	}
+}
+@media(min-width: 100px) and (max-width: 920px){
+	.magicard-flipper {
+		width: 150px;
+	}
+	#masthead .site-logo-img .custom-logo-link img {
+		width: 60px !important;
+		margin-top: -5px;
+		padding-bottom: 5px;
+	}
+	.site-content.magi-cus-page {
+		margin-top: -20px !important;
+	}
+}
+/*MQs*/
+/*Magicards Buttons*/
+@media(min-width: 100px) and (max-width: 920px){
+	#bts td {
+		width: 50%;
+		float: left;
+		text-align: center;
+	}
+	.magicard-shuffle, #smeaning {
+		float: right;
+		margin-right: 0px;
+	}
+	.magicard-toggle {
+		margin-left: 0px;
+	}
+}
+@media(min-width: 350px) and (max-width: 440px){
+	.magicard-shuffle, .magicard-toggle, .purbt, .uabb-creative-button-wrap a, .uabb-creative-button-wrap a:visited {
+		width: 160px !important;
+		font-size: 14px;
+	}
+}
+@media(min-width: 320px) and (max-width: 350px){
+	.magicard-shuffle, .magicard-toggle, .purbt, .uabb-creative-button-wrap a, .uabb-creative-button-wrap a:visited {
+		width: 140px !important;
+		font-size: 12px;
+	}
+}
+@media(min-width: 100px) and (max-width: 320px){
+	.magicard-shuffle, .magicard-toggle, .purbt, .uabb-creative-button-wrap a, .uabb-creative-button-wrap a:visited {
+		width: 125px !important;
+		font-size: 10px;
+	}
+}
+/*Accordions*/
+@media(min-width: 400px) and (max-width: 920px){
+	.accordionjs .acc_section .acc_head {
+		font-size: 16px !important;
+		font-weight: 600 !important;
+	}
+}
+@media(min-width: 365px) and (max-width: 400px){
+	.accordionjs .acc_section .acc_head {
+		font-size: 12px !important;
+		font-weight: 600 !important;
+	}
+}
+@media(min-width: 100px) and (max-width: 365px){
+	.accordionjs .acc_section .acc_head {
+		font-size: 9px !important;
+		font-weight: 600 !important;
+	}
+	.acc_head img {
+		left: 30px !important;
+	}
+}
+@media(min-width: 412px) and (max-width: 414px){
+	.magicard-wrap > div:nth-child(2) {
+		position: absolute !important;
+		margin: auto !important;
+		left: 40.2%;
+	}
+}

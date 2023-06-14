@@ -132,7 +132,7 @@ class WeatherForecastController extends Controller
         // dd($cards);
         $tarot_background = TarotBackground::inRandomOrder()->first();
         // dd($tarot_background->background_images);
-        return view('ask-tarot', compact('cards', 'tarot_background'));
+        return view('ask-tarot-1', compact('cards', 'tarot_background'));
     }
 
     public function tarotCard(Request $request)

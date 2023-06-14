@@ -1,0 +1,80 @@
+.accordion-cards {
+	clear: both;
+}
+#primary-menu * {
+	z-index: 9999999999999999999999999999999999999 !important;
+}
+.MagiCardTable tr:nth-child(2) td {
+	text-align: center;
+}
+.magicard-shuffle, .magicard-toggle {
+    background: #701d9f;
+    color: #FFFFFF;
+    border-radius: 50px;
+    padding: 10px 40px;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+td div i {
+	display: none !important;
+}
+.magicard-shuffle, .magicard-toggle, .purbt, .uabb-creative-button-wrap a, .uabb-creative-button-wrap a:visited {
+    background: #701D9F;
+    border: 1px solid #701D9F;
+    padding: 5px 20px !important;
+    border-radius: 30px;
+    -moz-border-radius: 30px;
+    -webkit-border-radius: 30px;
+    width: 200px !important;
+    min-height: 30px;
+    display: block;
+    color: #FFFFFF !important;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.uabb-bt1 , .uabb-bt {
+    float: left;
+}
+.magicard-commands.align-center, .fl-builder-content .uabb-button-center {
+    text-align: center !important;
+    position: relative !important;
+    right: 0px !important;
+    width: 100% !important;
+    left: 0px !important;
+    float: left !important;
+}
+.centerconts .fl-col-has-cols {
+    position: relative;
+    top: 0px;
+}
+.uabb-button-text.uabb-creative-button-text, .magicard-commands > div {
+    color: #FFFFFF !important;
+    text-transform: uppercase !important;
+}
+.hidecard{
+    transform: none !important;
+    opacity: 1 !important;
+}
+.magicard-flipper {
+    width: 260px;
+}
+.uabb-bt1 > .fl-module-content {
+    margin-top: 20px;
+    margin-left: 0px;
+    position: relative;
+}
+.descaccordion {
+	position: relative;
+	top: 150px;
+}
+.fl-module-content {
+    margin: 0px;
+}
+.uabb-creative-button-wrap a, .uabb-creative-button-wrap a:visited, .magicard-shuffle, .magicard-toggle {
+    z-index: 9999999;
+}
+.magicard-commands.align-center {
+    z-index: 999999999999999999;
+}
