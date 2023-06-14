@@ -219,7 +219,7 @@
 			jQuery(".magicard-shuffle strong").text("2");
 			jQuery(".magicard-toggle strong").text("3");
 			jQuery("#smeaning strong").text("4");
-			jQuery(".magicard-commands.align-center").prepend("<form><select id='ques' placeholder='Type a question or select from list' maxlength='35'><option value='1'>Am I going to become wealthy?</option><option value='2'>Will I find love?</option><option value='3'>Will today be a good day?</option><option value='3'>Will my relationship succeed?</option><option value='4'>Will I have a good future?</option><option value='5'>What do others think of me?</option><option value='6'>How can I improve my health?</option><option value='7'>Should I change careers?</option></select></form>");
+			jQuery(".magicard-commands.align-center").prepend("<form><select id='ques' name='search' placeholder='Type a question or select from list' maxlength='35'><option value='1'>Am I going to become wealthy?</option><option value='2'>Will I find love?</option><option value='3'>Will today be a good day?</option><option value='3'>Will my relationship succeed?</option><option value='4'>Will I have a good future?</option><option value='5'>What do others think of me?</option><option value='6'>How can I improve my health?</option><option value='7'>Should I change careers?</option></select></form>");
 			jQuery('#ques').editableSelect({
 				filter: false,
 				trigger: 'focus'

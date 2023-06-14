@@ -211,12 +211,17 @@ class WeatherForecastController extends Controller
             return $data;
 
     }
-
+    public function CardImages()
+    {
+       $tarotCard = TarotCard::where('status', 1)->where('card_images', '!=', '')->inRandomOrder()->first();
+       return response()->json([ 'card' => $tarotCard ]);
+    }
     public function userResponse()
     {
         $users = UserResponse::paginate(10);
         return view('user-response', compact('users'));
     }
+    
 
     public function delUserResponse($id)
     {

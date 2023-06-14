@@ -57,6 +57,7 @@ Route::post('/openai-img', [WeatherForecastController::class, 'openAiGenerate'])
 //Read Tarot
 Route::get('ask-tarot', [WeatherForecastController::class, 'askTarot'])->name('askTarot');
 Route::post('/tarot-card', [WeatherForecastController::class, 'tarotCard'])->name('tarotCard');
+Route::get('ajaxfunction',[WeatherForecastController::class,'CardImages'])->name('card-image');
 
 // Admin Screen OpenAI
 Route::get('admin-query', [WeatherForecastController::class, 'adminQuery'])->name('adminQuery');
