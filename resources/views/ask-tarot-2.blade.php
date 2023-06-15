@@ -1871,17 +1871,7 @@
                                                                                     <div class="magicard-back card_result"><img class=""
                                                                                             src="{{ asset('frontend/tarot/wp-content/uploads/2021/12/The-Nine-Of-Cups.png')}}"
                                                                                             class="skip-lazy"></div>
-                                                                                    <div class="magicard-tooltip">
-                                                                                        <h4
-                                                                                            class="magicard-caption">
-                                                                                            The Nine Of Cups</h4>
-                                                                                        <div
-                                                                                            class="magicard-description">
-                                                                                        </div>
-                                                                                        <div
-                                                                                            class="magicard-description-reversed  magicards-hide-info">
-                                                                                        </div>
-                                                                                    </div>
+
                                                                                 </div>
                                                                             </div>
                                                                         </div>
