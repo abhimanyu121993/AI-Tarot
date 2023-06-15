@@ -10,7 +10,7 @@
             </div>
             <div class="faq__wrapper">
                 <div class="row g-4">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="accordion" id="faqAccordion">
                             <div class="row g-4">
                                 @foreach ($faq as $faq)
