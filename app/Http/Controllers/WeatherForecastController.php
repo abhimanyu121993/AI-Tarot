@@ -168,7 +168,7 @@ class WeatherForecastController extends Controller
         Log::info('textTarotAIGenerate '. $param);
         $data = Http::withHeaders([
             'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' . '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',
+            'Authorization' => 'Bearer ' . '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',
         ])
             ->post("https://api.openai.com/v1/chat/completions", [
                 "model" => "gpt-3.5-turbo",
@@ -198,7 +198,7 @@ class WeatherForecastController extends Controller
         Log::info('imageTarotAIGenerate '. $param);
         $data = Http::withHeaders([
             'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' . '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',
+            'Authorization' => 'Bearer ' . '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',
         ])
             ->post("https://api.openai.com/v1/images/generations", [
                 "prompt" => $param,

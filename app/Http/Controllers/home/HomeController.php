@@ -41,7 +41,7 @@ class HomeController extends Controller
 
     public function home()
     {
-        $faq=Faq::all();
+        $faq=Faq::all()->take(2);
         $about=BusinessSetting::where('key','about_us')->first();
         return view('home.index',compact('faq','about'));
     }

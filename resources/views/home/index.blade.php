@@ -14,7 +14,7 @@
                             <h1>AI<span class="color--theme-color">Tarot <br> Card</span> Reader</h1>
                             <p>Whether you seek guidance, clarity, or simply a glimpse into the future, our AI Tarot Card Reader is here to assist you.</p>
                             <div class="btn-group">
-                                <a href="#" class="default-btn default-btn--secondary">Try Now</a>
+                                <a href="{{ route('google.login') }}" class="default-btn default-btn--secondary">Try Now</a>
                                 {{-- <a href="#" class="default-btn">Whitelist Now</a> --}}
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                 <div class="row g-5">
                     <div class="col-lg-6">
                         <div class="about__thumb" data-aos="fade-up" data-aos-duration="1500">
-                            <img src="{{asset('frontend/assets/images/about/01.png')}}" alt="About Image">
+                            <img src="{{asset('frontend/assets/images/about/01.jpg')}}" style="border-radius:10px;" alt="About Image">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -451,7 +451,7 @@
 
 
     <!-- ================>Team section start here <================== -->
-    <section class="team padding-top padding-bottom" style="background-image: url({{asset('frontend/assets/images/team/bg.jpg')}});"
+    {{-- <section class="team padding-top padding-bottom" style="background-image: url({{asset('frontend/assets/images/team/bg.jpg')}});"
         id="team">
         <div class="container">
             <div class="section-header text-center">
@@ -651,7 +651,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ================>Team section end here <================== -->
 
 
@@ -964,7 +964,7 @@
 
 
     <!-- ================Partner section start here <================== -->
-    <section class="partner padding-top padding-bottom">
+    {{-- <section class="partner padding-top padding-bottom">
         <div class="container">
             <div class="section-header text-center">
                 <p class="subtitle">Partners</p>
@@ -996,7 +996,7 @@
                         <div class="partner__item">
                             <img src="{{asset('frontend/assets/images/partner/05.png')}}" alt="Partner Image">
                         </div>
-                    </div>
+                    </div> --}}
                     {{-- <div class="col">
                         <div class="partner__item">
                             <img src="{{asset('frontend/assets/images/partner/06.png')}}" alt="Partner Image">
@@ -1022,15 +1022,15 @@
                             <img src="{{asset('frontend/assets/images/partner/10.png')}}" alt="Partner Image">
                         </div>
                     </div> --}}
-                </div>
+                {{-- </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ================Partner section end here <================== -->
 
 
     <!-- ================>Community section start here <================== -->
-    <section class="community padding-top padding-bottom" style="background-image:url({{asset('frontend/assets/images/community/bg.jpg')}})">
+    {{-- <section class="community padding-top padding-bottom" style="background-image:url({{asset('frontend/assets/images/community/bg.jpg')}})">
         <div class="container">
             <div class="comminity__wrapper">
                 <div class="section-header text-center">
@@ -1043,9 +1043,9 @@
                     <a href="#" class="default-btn"> <span><img src="{{asset('frontend/assets/images/opensea.svg')}}" alt="opensea icon"
                                 width="20" height="20"> Join Opensea</span> </a>
                 </div> --}}
-            </div>
+            {{-- </div>
         </div>
-    </section>
+    </section>  --}}
     <!-- ================>Community section end here <================== -->
 
 @endsection
