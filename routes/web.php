@@ -34,10 +34,10 @@ Route::get('tarot-read', function () {
     return view('home');
 });
 
-Route::get('/', [HomeController::class , 'comingSoon']);
+// Route::get('/', [HomeController::class , 'comingSoon']);
 Route::post('subscribe', [HomeController::class, 'subscribe'])->name('subscribe');
 
-Route::get('home', [HomeController::class , 'home'])->name('home');
+Route::get('/', [HomeController::class , 'home'])->name('home');
 Route::get('read-tarot', [HomeController::class , 'readTarot'])->name('readTarot');
 
 Route::get('about', [HomeController::class , 'ShowAbout'])->name('about');
