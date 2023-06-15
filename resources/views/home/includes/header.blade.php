@@ -16,9 +16,9 @@
                         <li>
                             <a href="{{route('about')}}">About</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="#team">Team</a>
-                        </li>
+                        </li> --}}
                         <li>
                             <a href="{{route('show-faq')}}">FAQ</a>
                         </li>
