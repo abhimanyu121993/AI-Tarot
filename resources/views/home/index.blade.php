@@ -3,7 +3,7 @@
 
 
     <!-- ================> Banner section start here <================== -->
-    <section id="home" class="banner" style="background-image: url({{asset('frontend/assets/images/banner/bg.png')}});">
+    <section id="home" class="banner" style="background-image: url({{asset('frontend/assets/images/banner/bg.png')}});height:45rem;">
         <div class="container">
             <div class="banner__wrapper">
                 <div class="row g-5 align-items-center">
@@ -15,7 +15,7 @@
                             <p>Whether you seek guidance, clarity, or simply a glimpse into the future, our AI Tarot Card Reader is here to assist you.</p>
                             <div class="btn-group">
                                 <a href="#" class="default-btn default-btn--secondary">Try Now</a>
-                                <a href="#" class="default-btn">Whitelist Now</a>
+                                {{-- <a href="#" class="default-btn">Whitelist Now</a> --}}
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
 
 
     <!-- ================> Counter section start here <================== -->
-    <section class="counter counter--uplifted">
+    {{-- <section class="counter counter--uplifted">
         <div class="container">
             <div class="counter__wrapper">
                 <div class="row g-1">
@@ -102,7 +102,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ================> Counter section end here <================== -->
 
 
@@ -123,11 +123,8 @@
                         <div class="about__content" data-aos="fade-up" data-aos-duration="2000">
                             <p class="subtitle">The Story</p>
                             <h2>About us</h2>
-                            <p>Welcome to AI Tarot Card Reader! We are a team of dedicated professionals passionate about bringing the ancient art of tarot reading into the digital age. Our mission is to provide accessible and accurate tarot card readings using the power of artificial intelligence.
-
-                                At AI Tarot Card Reader, we understand that life can be filled with uncertainties, and seeking guidance and clarity is a natural human desire. Drawing upon the rich history and symbolism of tarot cards, we have combined it with the latest advancements in AI technology to create a platform that offers insightful and personalized readings.</p>
-
-                            <div class="mint-step">
+                            <p>{!! $about->value??''!!}</p>
+                            {{-- <div class="mint-step">
                                 <p class="subtitle color--secondary-color">Easy Steps</p>
                                 <h3>Here's how it works:</h3>
                                 <p>Using cutting-edge algorithms and extensive tarot card interpretations, our AI Tarot Card Reader offers accurate and meaningful readings tailored to your unique situation. It combines the wisdom of traditional tarot cards with the power of AI, allowing you to receive guidance conveniently and instantaneously.</p>
@@ -145,7 +142,7 @@
                                     <a href="#" class="default-btn default-btn--secondary">Mint Now</a>
                                     <!-- <a href="#" class="default-btn">Whitelist Now</a> -->
                                 </div>
-                            </div>
+                            </div> --}}
 
                         </div>
                     </div>
@@ -157,7 +154,7 @@
 
 
     <!-- ================>Roadmap section start here <================== -->
-    <section class="roadmap roadmap--style1 padding-top padding-bottom" id="roadmap"
+    {{-- <section class="roadmap roadmap--style1 padding-top padding-bottom" id="roadmap"
         style="background-image: url({{asset('frontend/assets/images/roadmap/bg.jpg')}});">
         <div class="container">
             <div class="section-header text-center">
@@ -370,12 +367,12 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ================>Roadmap section end here <================== -->
 
 
     <!-- ================>collection section start here <================== -->
-    <section class="collection padding-top padding-bottom">
+    {{-- <section class="collection padding-top padding-bottom">
         <div class="container">
             <div class="collection__wrapper">
                 <div class="row g-4">
@@ -449,7 +446,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ================>collection section end here <================== -->
 
 
@@ -667,34 +664,29 @@
             </div>
             <div class="faq__wrapper">
                 <div class="row g-4">
-                    <div class="col-lg-6">
+                    <div class="col-lg-12">
                         <div class="accordion" id="faqAccordion1">
                             <div class="row g-4">
+                                @foreach ($faq as $faq)
                                 <div class="col-12">
                                     <div class="accordion__item" data-aos="fade-up" data-aos-duration="1000">
                                         <div class="accordion__header" id="faq1">
                                             <button class="accordion__button collapsed" type="button"
-                                                data-bs-toggle="collapse" data-bs-target="#faqBody1"
+                                                data-bs-toggle="collapse" data-bs-target="#faqBody{{ $faq->id }}"
                                                 aria-expanded="false" aria-controls="faqBody1">
-                                                What is AITarot <span class="plus-icon"></span>
+                                                {{$faq->question}} <span class="plus-icon"></span>
                                             </button>
                                         </div>
-                                        <div id="faqBody1" class="accordion-collapse collapse" aria-labelledby="faq1"
+                                        <div id="faqBody{{ $faq->id }}" class="accordion-collapse collapse" aria-labelledby="faq1"
                                             data-bs-parent="#faqAccordion1">
                                             <div class="accordion__body">
-                                                We want provide our community with the best quality art from real artist
-                                                for afordable price
-                                                That is why we chose mint price of 0.22 ETH (+ gas fee). If you are
-                                                planning to hold your Bulls
-                                                you will bee rewarded with FEE Apes Land approximatey 6-8 weeks after
-                                                the official launch
-                                                02
-                                                What will the mint price be?.
+                                                {{$faq->answer}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
+                                @endforeach
+                                {{-- <div class="col-12">
                                     <div class="accordion__item" data-aos="fade-up" data-aos-duration="1100">
                                         <div class="accordion__header" id="faq2">
                                             <button class="accordion__button" type="button" data-bs-toggle="collapse"
@@ -741,11 +733,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    {{-- <div class="col-lg-6">
                         <div class="accordion" id="faqAccordion2">
                             <div class="row g-4">
                                 <div class="col-12">
@@ -825,7 +817,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -835,7 +827,7 @@
 
 
     <!-- ================Blog section start here <================== -->
-    <section class="blog padding-top padding-bottom" style="background-image: url({{asset('frontend/assets/images/blog/bg.jpg')}});">
+    {{-- <section class="blog padding-top padding-bottom" style="background-image: url({{asset('frontend/assets/images/blog/bg.jpg')}});">
         <div class="container">
             <div class="section-header text-center">
                 <p class="subtitle">Latest Articles</p>
@@ -967,7 +959,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!-- ================Blog section end here <================== -->
 
 
@@ -1005,7 +997,7 @@
                             <img src="{{asset('frontend/assets/images/partner/05.png')}}" alt="Partner Image">
                         </div>
                     </div>
-                    <div class="col">
+                    {{-- <div class="col">
                         <div class="partner__item">
                             <img src="{{asset('frontend/assets/images/partner/06.png')}}" alt="Partner Image">
                         </div>
@@ -1029,7 +1021,7 @@
                         <div class="partner__item">
                             <img src="{{asset('frontend/assets/images/partner/10.png')}}" alt="Partner Image">
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -1045,12 +1037,12 @@
                     <p class="subtitle">Our Community</p>
                     <h2>Join Our Cumminity and get early access</h2>
                 </div>
-                <div class="btn-group justify-content-center">
+                {{-- <div class="btn-group justify-content-center">
                     <a href="#" class="default-btn default-btn--secondary"><span><i class="fab fa-discord"></i> Join
                             Discord</span></a>
                     <a href="#" class="default-btn"> <span><img src="{{asset('frontend/assets/images/opensea.svg')}}" alt="opensea icon"
                                 width="20" height="20"> Join Opensea</span> </a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </section>

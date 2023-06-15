@@ -1871,11 +1871,11 @@
                                                                                     <div class="magicard-back"><img
                                                                                             src="{{ asset('frontend/tarot/wp-content/uploads/2021/12/The-Nine-Of-Cups.png')}}"
                                                                                             class="skip-lazy"></div>
-                                                                                            {{-- <h4
+                                                                                        <div
+                                                                                            class="magicard-description">
+                                                                                        {{-- <h4
                                                                                             class="magicard-caption">
                                                                                             The Nine Of Cups</h4> --}}
-                                                                                            <div
-                                                                                            class="magicard-description">
                                                                                         </div>
                                                                                         <div class="magicard-tooltip"
                                                                                             class="magicard-description-reversed  magicards-hide-info">
@@ -1884,8 +1884,6 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div><input type="text" name="search" class="form-control w-25" style="transform: translateX(400px);" id="exampleInputEmail1"
-                                                                            placeholder="Will i find my love"></div>
                                                                         <div
                                                                             class="magicard-commands align-center">
                                                                             <table id="bts">
@@ -1999,7 +1997,7 @@
     <script type='text/javascript' src="{{ asset('frontend/tarot/wp-content/plugins/magicards/js/magicards.minc801.js?ver=1.9.3')}}" id='magicards-js-js'></script>
 
     <script type='text/javascript' src="{{ asset('frontend/tarot/stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js')}}" ></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 
 
     <script type="text/javascript">

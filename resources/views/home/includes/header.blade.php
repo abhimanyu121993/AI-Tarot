@@ -54,9 +54,9 @@
                         </li> --}}
                     </ul>
                     <div class="header-btn">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#wallet-option" class="default-btn default-btn--secondary">
+                        {{-- <a href="#" data-bs-toggle="modal" data-bs-target="#wallet-option" class="default-btn default-btn--secondary">
                             <span>Join <i class="fa-brands fa-discord"></i></span>
-                        </a>
+                        </a> --}}
 
                         <a href="{{ route('google.login') }}" class="default-btn" >
                             <span>AI Tarot </span>

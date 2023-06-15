@@ -18,12 +18,12 @@
                                     <div class="accordion__item" data-aos="fade-up" data-aos-duration="1000">
                                         <div class="accordion__header" id="faq1">
                                             <button class="accordion__button collapsed" type="button"
-                                            data-bs-toggle="collapse" data-bs-target="#faqBody1"
+                                            data-bs-toggle="collapse" data-bs-target="#faqBody{{ $faq->id }}"
                                             aria-expanded="false" aria-controls="faqBody">
                                             {{$faq->question}}<span class="plus-icon"></span>
                                         </button>
                                     </div>
-                                    <div id="faqBody1" class="accordion-collapse collapse" aria-labelledby="faq1"
+                                    <div id="faqBody{{ $faq->id }}" class="accordion-collapse collapse" aria-labelledby="faq1"
                                     data-bs-parent="#faqAccordion">
                                     <div class="accordion__body">
                                         {{$faq->answer}}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\home;
 
 use App\Http\Controllers\Controller;
 use App\Models\BusinessSetting;
+use App\Models\Faq;
 use App\Models\SubscribeNewsletter;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -40,7 +41,9 @@ class HomeController extends Controller
 
     public function home()
     {
-        return view('home.index');
+        $faq=Faq::all();
+        $about=BusinessSetting::where('key','about_us')->first();
+        return view('home.index',compact('faq','about'));
     }
 
     public function readTarot()
