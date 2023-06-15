@@ -139,8 +139,8 @@ class WeatherForecastController extends Controller
     {
         // dd($request->all());
         $search = $request->search ;
-
-        $cards = TarotCard::inRandomOrder()->first();
+        $card_id = $request->tarot_card_id;
+        $cards = TarotCard::find($card_id);
         $total_card_count = $cards->count();
 
         // Text AI Generation
@@ -152,7 +152,6 @@ class WeatherForecastController extends Controller
         $user = UserResponse::create([
             'question' => $search,
             'user_id' => Auth::user()->id,
-            // 'user_id' => 1,
             'text_answer' => json_encode($txt_result['content']),
             'img_answer' => json_encode($img_result['data']),
         ]);

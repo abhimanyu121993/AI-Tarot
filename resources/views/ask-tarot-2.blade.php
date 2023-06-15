@@ -1844,8 +1844,8 @@
                 <div class="entry-content clear" itemprop="text">
                     <div class="fl-builder-content fl-builder-content-1318 fl-builder-content-primary fl-builder-global-templates-locked"
                         data-post-id="1318">
-                        <div class="fl-row fl-row-full-width fl-row-bg-none fl-node-5d129426b854a fl-row-custom-height fl-row-align-center centerconts"
-                            data-node="5d129426b854a">
+                        <div class="mt-3 fl-row fl-row-full-width fl-row-bg-none fl-node-5d129426b854a fl-row-custom-height fl-row-align-center centerconts"
+                            data-node="5d129426b854a" style="background-color: black; opacity: .9; border-radius: 20px;">
                             <div class="fl-row-content-wrap">
                                 <div class="fl-row-content fl-row-fixed-width fl-node-content">
                                     <div class="fl-col-group fl-node-5d129426b9be8" data-node="5d129426b9be8">
@@ -1858,17 +1858,17 @@
                                                         <div class="fl-widget">
                                                             <form action="{{ route('tarotCard') }}" class="text-center mt-4" method="POST">
                                                                 @csrf
-                                                                <input type="hidden" id="card_id" />
+                                                                <input type="hidden" name="tarot_card_id" id="card_id" value="" />
                                                                 <div class="widget widget_magicards_widget">
                                                                     <div class="magicards-deck-wrap ">
                                                                         <div class="magicards-deck magicards-col-1"
                                                                             id="magicards_stack_1">
                                                                             <div class="magicard-wrap">
-                                                                                <div class="magicard-flipper">
-                                                                                    <div class="magicard-front"><img
+                                                                                <div class="magicard-flipper ">
+                                                                                    <div class="magicard-front "><img
                                                                                             src="{{ asset('frontend/tarot/wp-content/uploads/2021/12/Back-Of-Card.png')}}"
                                                                                             class="skip-lazy"></div>
-                                                                                    <div class="magicard-back"><img
+                                                                                    <div class="magicard-back card_result"><img class=""
                                                                                             src="{{ asset('frontend/tarot/wp-content/uploads/2021/12/The-Nine-Of-Cups.png')}}"
                                                                                             class="skip-lazy"></div>
                                                                                         <div
@@ -1890,7 +1890,9 @@
                                                                                 <tr>
                                                                                     <td>
                                                                                         <div
-                                                                                            class="magicard-shuffle reveal_card">
+                                                                                            class="magicard-shuffle reveal_card" onclick="takecard()" style="
+                                                                                            float: right;
+                                                                                        " >
                                                                                             <i
                                                                                                 class="magicons magicon-shuffle"></i>
                                                                                             SHUFFLE
@@ -2000,29 +2002,35 @@
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
 
 
-    <script type="text/javascript">
-    $(document).ready(function() {
-            // alert('hello');
-            $('.reveal_card').on('click', function(event) {
-                $('.magicard-back').show();
-                var newurl = "{{ url('ajaxfunction') }}";
-                $.ajax({
-                    url: newurl,
-                    type: "get",
-                    success: function(response) {
-                        // console.log(response.card);
-                        $('#card_id').val(response.card.id);
-                        $(".card_result").attr("src",response.card.card_images);
-                    }
-                });
+
+    <script>
+        function takecard(){
+            var newurl = "{{ url('ajaxfunction') }}";
+            fetch(newurl)
+            .then(function(response) {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(function(data) {
+                // Process the response data
+                console.log(data.card.card_images);
+                document.getElementById('card_id').value = data.card.id;
+                document.querySelectorAll('.card_result img').forEach(img => img.setAttribute('src', data.card.card_images));
+
+
+                // document.getElementsByClassName('card_result').src = data.card.card_images;
+            })
+            .catch(function(error) {
+                // Handle any error that occurred during the request
+                console.log(error);
             });
-            // $(".reveal_card").on("click",function(){
-		    //     if($("#flip-box").css("transform") == 'none') {
-			//         $("#flip-box").css("transform","rotateY(180deg)");
-		    //     }
-	        // });
-        });
+        }
+
+
     </script>
+
 
     <style>
         .popupParent {
