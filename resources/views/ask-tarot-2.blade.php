@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="icon" href="{{ asset('frontend/assets/images/favicon.png')}}">
-
+    <title>Ask-Tarot</title>
     <link rel='stylesheet' id='astra-google-fonts-css' href='https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C&amp;display=fallback&amp;ver=2.0.1'
         type='text/css' media='all' />
     <link rel='stylesheet' id='fl-builder-layout-8-css' href="{{ asset('frontend/tarot/wp-content/themes/tarotmoon/wp-content/uploads/bb-plugin/cache/8-layout11201120.css?er=62959aa306b1f4585e330e8a6b4afd5f')}}"
