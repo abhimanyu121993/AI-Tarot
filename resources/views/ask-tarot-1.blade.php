@@ -307,15 +307,12 @@
                                                                                     <div class="magicards-deck magicards-col-1"
                                                                                         id="magicards_stack_1">
                                                                                         <div class="magicard-wrap">
-                                                                                            <div
-                                                                                                class="magicard-flipper">
-                                                                                                <div
-                                                                                                    class="magicard-front">
+                                                                                            <div class="magicard-flipper">
+                                                                                                <div class="magicard-front">
                                                                                                     <img  src="{{ asset('frontend/tarot/asset/wp-content/uploads/2021/12/Back-Of-Card.png') }}"
                                                                                                         class="skip-lazy">
                                                                                                 </div>
-                                                                                                <div
-                                                                                                    class="magicard-back">
+                                                                                                <div class="magicard-back back-card-panel" >
                                                                                                     <img class="card_result"  src="{{ asset('frontend/tarot/asset/wp-content/uploads/2021/12/The-Nine-Of-Cups.png') }}"
                                                                                                         class="skip-lazy">
                                                                                                 </div>
@@ -398,10 +395,10 @@
             </div>
         </div>
 
-
-
-
     </div>
+
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -430,15 +427,17 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function() {
+            // $('.back-card-panel').hide();
             $('.reveal_card').on('click', function(event) {
+                $('.magicard-back').show();
                 var newurl = "{{ url('ajaxfunction') }}";
                 $.ajax({
                     url: newurl,
                     type: "get",
                     success: function(response) {
-                            console.log(response.card);
-                            $('#card_id').val(response.card.id);
-                            $(".card_result").attr("src",response.card.card_images);
+                        // console.log(response.card);
+                        $('#card_id').val(response.card.id);
+                        $(".card_result").attr("src",response.card.card_images);
                     }
                 });
             });

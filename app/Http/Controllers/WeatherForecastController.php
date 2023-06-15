@@ -132,7 +132,7 @@ class WeatherForecastController extends Controller
         // dd($cards);
         $tarot_background = TarotBackground::inRandomOrder()->first();
         // dd($tarot_background->background_images);
-        return view('ask-tarot-1', compact('cards', 'tarot_background'));
+        return view('ask-tarot-2', compact('cards', 'tarot_background'));
     }
 
     public function tarotCard(Request $request)
@@ -152,6 +152,7 @@ class WeatherForecastController extends Controller
         $user = UserResponse::create([
             'question' => $search,
             'user_id' => Auth::user()->id,
+            // 'user_id' => 1,
             'text_answer' => json_encode($txt_result['content']),
             'img_answer' => json_encode($img_result['data']),
         ]);
@@ -168,7 +169,7 @@ class WeatherForecastController extends Controller
         Log::info('textTarotAIGenerate '. $param);
         $data = Http::withHeaders([
             'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' . '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',
+            'Authorization' => 'Bearer ' . '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',
         ])
             ->post("https://api.openai.com/v1/chat/completions", [
                 "model" => "gpt-3.5-turbo",
@@ -198,7 +199,7 @@ class WeatherForecastController extends Controller
         Log::info('imageTarotAIGenerate '. $param);
         $data = Http::withHeaders([
             'Content-Type' => 'application/json',
-            'Authorization' => 'Bearer ' . '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',
+            'Authorization' => 'Bearer ' . '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',
         ])
             ->post("https://api.openai.com/v1/images/generations", [
                 "prompt" => $param,
@@ -221,7 +222,7 @@ class WeatherForecastController extends Controller
         $users = UserResponse::paginate(10);
         return view('user-response', compact('users'));
     }
-    
+
 
     public function delUserResponse($id)
     {

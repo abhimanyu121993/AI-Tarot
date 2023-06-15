@@ -1,0 +1,69 @@
+/**
+Theme Name: Astra Child
+Author: Brainstorm Force
+Author URI: http://wpastra.com/about/
+Description: Astra is the fastest, fully customizable & beautiful theme suitable for blogs, personal portfolios and business websites. It is very lightweight (less than 50KB on frontend) and offers unparalleled speed. Built with SEO in mind, Astra comes with schema.org code integrated so search engines will love your site. Astra offers plenty of sidebar options and widget areas giving you a full control for customizations. Furthermore, we have included special features and templates so feel free to choose any of your favorite page builder plugin to create pages flexibly. Some of the other features: # WooCommerce Ready # Responsive # Compatible with major plugins # Translation Ready # Extendible with premium addons # Regularly updated # Designed, Developed, Maintained & Supported by Brainstorm Force. Looking for a perfect base theme? Look no further. Astra is fast, fully customizable and beautiful theme!
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: astra-child
+Template: astra
+*/
+@import url('https://fonts.googleapis.com/css?family=Berkshire+Swash|Open+Sans:300');
+.magicard-tooltip {
+    background-color: rgba(130,36,227,0.9) !important;
+    color: #fff !important;
+    bottom: -15px !important;
+}
+.magicard-tooltip .magicard-description, .magicard-tooltip .magicard-description-reversed {
+    font-size: 70% !important;
+}
+h4.magicard-caption {
+	color: #FFFFFF !important;
+	font-family: 'Berkshire Swash', cursive !important;
+}
+.authorProfile img {
+    border-radius: 50% !important;
+    border: 5px solid #ffffff !important;
+    max-width: 200px !important;
+    box-shadow: 0px 0px 3px #AAA !important;
+}
+.authorProfile {
+    padding: 40px 30px 20px 30px;
+    box-shadow: 0px 40px 100px #e0e0e0;
+    border-radius: 49px;
+    margin-top: 40px;
+}
+.dashicons-arrow-down-alt2:before, .dashicons-arrow-up-alt2:before {
+    font-size: 40px !important;
+    left: -35px !important;
+    position: relative !important;
+    opacity: 1 !important;
+    color: #FFFFFF !important;
+    top: 15px !important;
+}
+.fl-accordion-button {
+    padding-top: 5px !important;
+    border-radius: 60px !important;
+}
+.dashicons, .dashicons-before:before {
+    opacity: 1 !important;
+}
+.fl-accordion-item {
+    overflow: visible !important;
+}
+.fl-accordion-button .fl-accordion-button-icon {
+    background-color: transparent !important;
+}
+.fl-accordion-button-label img {
+    max-width: 50px;
+    position: relative;
+    left: 30px;
+    top: 3px;
+}
+.fl-builder-content .fl-node-5cc821748ae40 .uabb-infobox-title {
+    color: #701d9f !important;
+}
+.fl-node-5cc80cff0b93a > .fl-col-content, .fl-node-5cc81db81b47b > .fl-col-content, .fl-node-5cc81e18c3c60 > .fl-col-content {
+    background-color: #701d9f !important;
+}
