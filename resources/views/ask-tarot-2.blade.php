@@ -1838,8 +1838,7 @@
 
     <div class="container">
         <main id="main" class="site-main">
-            <article class="post-1318 page type-page status-publish ast-article-single"
-                itemtype="https://schema.org/CreativeWork" itemscope="itemscope" id="post-1318">
+            <article class="post-1318 page type-page status-publish ast-article-single" itemscope="itemscope" id="post-1318">
 
                 <div class="entry-content clear" itemprop="text">
                     <div class="fl-builder-content fl-builder-content-1318 fl-builder-content-primary fl-builder-global-templates-locked"
