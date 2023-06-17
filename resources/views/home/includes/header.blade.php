@@ -3,7 +3,7 @@
         <div class="container">
             <div class="header-wrapper">
                 <div class="logo">
-                    <a href="index.html">
+                    <a href="{{ route('home') }}">
                         <img src="{{ asset('frontend/assets/images/logo/logo-white.svg') }}" alt="logo" width="92" height="92" >
                     </a>
                 </div>

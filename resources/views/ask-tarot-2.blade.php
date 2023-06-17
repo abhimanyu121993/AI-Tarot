@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ asset('frontend/tarot/stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css')}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="{{ asset('frontend/assets/images/favicon.png')}}">
+    <link rel="shortcut icon" href="{{ asset('frontend/assets/images/favicon.png')}}" type="image/x-icon">
     <title>Ask-Tarot</title>
     <link rel='stylesheet' id='astra-google-fonts-css' href='https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C&amp;display=fallback&amp;ver=2.0.1'
         type='text/css' media='all' />
